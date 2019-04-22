@@ -1,6 +1,6 @@
-name: "MyLabJournal"
+name: "ZNathani Honors Project"
 navbar:
-  title: "MyLabJournal"
+  title: "ZNathani Honors Project"
   left:
     - text: "Home"
       href: index.html
