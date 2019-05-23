@@ -14,8 +14,9 @@ for(i in seq) {
       seq[num]<-num
     }
   num <- num+1
-    }
-print(seq)
+}
+paste(as.character(seq),"",collapse=", ",sep="")
+##print(seq)
 
 
 

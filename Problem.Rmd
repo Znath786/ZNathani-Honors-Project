@@ -1,0 +1,74 @@
+---
+title: "R code for more difficult problems"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
+```
+
+
+# FizzBuzz Problem
+
+
+```{r}
+num <-1
+seq<- c(1:100)
+for(i in seq) {
+  if (num%%3==0 && num%%5==0){
+      seq[num]<-"FizzBuzz"
+    }
+  else if (num%%3==0 & num%%5!=0){
+      seq[num]<-"Fizz"
+    }
+  else if (num%%3!=0 & num%%5==0){
+      seq[num]<-"Buzz"
+    }
+  else {
+      seq[num]<-num
+    }
+  num <- num+1
+}
+paste(as.character(seq),"",collapse=", ",sep="")
+##print(seq)
+```
+
+# Snakes & Ladders
+
+
+```{r}
+sum<-0
+for(i in 1:1000) {
+    CurrentSpace<-1
+    diceRolls<-0
+    while(CurrentSpace<26){
+        diceNum<-sample(c(1,2,3,4,5,6),1)
+        ## print(diceNum) 
+        diceRolls <- diceRolls +1
+        CurrentSpace <- CurrentSpace + diceNum
+        if(CurrentSpace==3) {CurrentSpace<- 11}
+        if(CurrentSpace==6) {CurrentSpace<- 17}
+        if(CurrentSpace==9) {CurrentSpace<- 18}
+        if(CurrentSpace==10) {CurrentSpace<-12}
+        if(CurrentSpace==19) {CurrentSpace<-8}
+        if(CurrentSpace==22) {CurrentSpace<-20}
+        if(CurrentSpace==24) {CurrentSpace<-16}
+        ## print(CurrentSpace)
+    }
+    ## print(diceRolls)
+    sum <- sum +diceRolls
+}
+AveDiceRolls <- sum/1000
+print(capture.output(cat('Average Dice Rolls for 1000 trials: ', AveDiceRolls)))
+```
+
+## Second level header
+
+

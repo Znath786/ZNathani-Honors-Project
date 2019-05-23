@@ -4,8 +4,8 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Journal"
-      href: Journal.html
-    - text: "Links"
-      href: Links.html
+    - text: "R code to Harder Problems"
+      href: Problem.html
+    - text: "Replicated ANOVA for Psychology Paper"
+      href: Data re-analysis2.html
 output_dir: "docs"
