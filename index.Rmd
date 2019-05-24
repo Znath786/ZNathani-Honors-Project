@@ -21,8 +21,9 @@ output: html_document
 
 This website contains the different components of my Honors Project for Professor Crump's section of PSYC 3400. 
 Use the menu to navigate to the two different sections that contain 
-a) R code for the FizzBuzz and Snakes & Ladders problems, and 
-b) The replication of data analysis conducted in one part of a Psychological Paper
+a) R code for the FizzBuzz and Snakes & Ladders problems,
+b) Summary of the chosen Psychological Paper, and
+c) The replication of data analysis conducted in one part of the study
 
 
 

@@ -383,7 +383,10 @@ div.tocify {
   <a href="Problem.html">R code to Harder Problems</a>
 </li>
 <li>
-  <a href="ReplicatedData.html">Replicated ANOVA for Psychology Paper</a>
+  <a href="PaperSummary.html">Summary of Paper</a>
+</li>
+<li>
+  <a href="ReplicatedData.html">Replicated Analysis from Psychology Paper</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -438,7 +441,6 @@ for(i in 1:1000) {
     diceRolls&lt;-0
     while(CurrentSpace&lt;26){
         diceNum&lt;-sample(c(1,2,3,4,5,6),1)
-        ## print(diceNum) 
         diceRolls &lt;- diceRolls +1
         CurrentSpace &lt;- CurrentSpace + diceNum
         if(CurrentSpace==3) {CurrentSpace&lt;- 11}
@@ -448,14 +450,12 @@ for(i in 1:1000) {
         if(CurrentSpace==19) {CurrentSpace&lt;-8}
         if(CurrentSpace==22) {CurrentSpace&lt;-20}
         if(CurrentSpace==24) {CurrentSpace&lt;-16}
-        ## print(CurrentSpace)
     }
-    ## print(diceRolls)
     sum &lt;- sum +diceRolls
 }
 AveDiceRolls &lt;- sum/1000
 print(capture.output(cat(&#39;Average Dice Rolls for 1000 trials: &#39;, AveDiceRolls)))</code></pre>
-<pre><code>## [1] &quot;Average Dice Rolls for 1000 trials:  8.273&quot;</code></pre>
+<pre><code>## [1] &quot;Average Dice Rolls for 1000 trials:  8.327&quot;</code></pre>
 </div>
 </div>
 
