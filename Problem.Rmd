@@ -16,6 +16,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 
 
 # FizzBuzz Problem
+#### Below see the R code for the FizzBuzz problem, in which every number from 1-100 that is divisible by 3 is replaced by "Fizz" and every number divisible by 5 is replaced with "Bizz". Numbers that are divisible by both are replaced with "FizzBuzz".
 
 
 ```{r}
@@ -41,6 +42,7 @@ paste(as.character(seq),"",collapse=", ",sep="")
 ```
 
 # Snakes & Ladders
+#### Below see the R code that simulates the Snakes and Ladders Board found at https://crumplab.github.io/programmingforpsych/programming-challenges-i-learning-the-fundamentals.html#harder-problems and estimates the average number of dice rolls needed to successfully complete the game.
 
 
 ```{r}
@@ -69,6 +71,5 @@ AveDiceRolls <- sum/1000
 print(capture.output(cat('Average Dice Rolls for 1000 trials: ', AveDiceRolls)))
 ```
 
-## Second level header
 
 

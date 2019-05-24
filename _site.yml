@@ -6,6 +6,8 @@ navbar:
       href: index.html
     - text: "R code to Harder Problems"
       href: Problem.html
-    - text: "Replicated ANOVA for Psychology Paper"
-      href: Data re-analysis2.html
+    - text: "Summary of Paper"
+      href: PaperSummary.html
+    - text: "Replicated Analysis from Psychology Paper"
+      href: ReplicatedData.html
 output_dir: "docs"

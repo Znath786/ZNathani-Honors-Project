@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Replicated Analysis from Psychological Paper</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">ZNathani Honors Project</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Problem.html">R code to Harder Problems</a>
+</li>
+<li>
+  <a href="PaperSummary.html">Summary of Paper</a>
+</li>
+<li>
+  <a href="ReplicatedData.html">Replicated Analysis from Psychology Paper</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Replicated Analysis from Psychological Paper</h1>
+
+</div>
+
+
+<p>The paper that was re-analyzed the paper entitled “Uh and euh signal novelty for monolinguals and bilinguals: evidence from children and adults” by Elizabeth Morin-Lessard and Krista Byers-Heinlein (doi: 10.1017/S0305000918000612)</p>
+<div id="analysis-with-r" class="section level1">
+<h1>Analysis with R</h1>
+<div id="code-to-replicate-one-way-repeated-measures-anova-from-study-1-on-monolinguals-along-with-follow-up-t-tests-and-graph-of-data" class="section level3">
+<h3>Code to replicate one-way repeated measures ANOVA from Study 1, on Monolinguals (along with follow up t-tests and graph of data)</h3>
+<pre class="r"><code>library(eyetrackingR)
+library(ez)
+library(tidyverse)
+library(effsize)
+library(dplyr)
+library(xtable)
+library(apaTables)
+
+
+##setwd(&quot;~/Documents/GITHUB/Znathani-Honors-Project&quot;)
+
+monolingual_children_data_1 &lt;- read_csv(&quot;monolingual_children_data_2.csv&quot;)</code></pre>
+<p>Always the first function used with eyetrackingr - Convert raw data for use in eyetrackingR</p>
+<pre class="r"><code>data &lt;- make_eyetrackingr_data(monolingual_children_data_1, 
+                               participant_column = &quot;subject&quot;,
+                               trial_column = &quot;media.name&quot;,
+                               time_column = &quot;trial.timestamp&quot;,
+                               trackloss_column = &quot;trackloss&quot;,
+                               aoi_columns = c(&#39;look.novel&#39;,&#39;look.familiar&#39;),
+                               treat_non_aoi_looks_as_missing = TRUE)</code></pre>
+<p>Look only at the data in the time frame of interest- 2 seconds before the onset of the target words and shifted over 250 ms to allow for initiation of eye movement, as mentioned in the paper</p>
+<pre class="r"><code>response_window &lt;- subset_by_window(data,
+                                    window_start_time = 13250,
+                                    window_end_time = 15250, rezero = FALSE, remove=TRUE)</code></pre>
+<p>Data should be removed if the eyetracker lost track of it for too long details on trial proportion threshhold not given in paper, value chosen based on my judgement</p>
+<pre class="r"><code>data_clean &lt;- clean_by_trackloss(response_window,
+                                 trial_prop_thresh = .5,
+)</code></pre>
+<p>Gives proportion that can be used as dependent variable in ANOVA</p>
+<pre class="r"><code>response_window_agg_by_subject &lt;- make_time_window_data(data= data_clean, 
+                                                        aois = c(&quot;look.novel&quot;),
+                                                        predictor_columns=c(&quot;trial.type&quot;, &quot;target.type&quot;),
+                                                        summarize_by = c(&quot;subject&quot;, &quot;media.name&quot;)) %&gt;%
+  group_by(subject) %&gt;%
+  mutate(trial.number = 1:n())</code></pre>
+<p>ANOVA</p>
+<pre class="r"><code>monolingual_analysis &lt;- ezANOVA(
+  data = response_window_agg_by_subject
+  , dv = .(Prop)
+  , wid = subject
+  , within = .(trial.type)
+  , type = 3
+  , return_aov = TRUE
+)</code></pre>
+<p>Print ANOVA Results in Table</p>
+<pre class="r"><code>DataTable &lt;- apa.ezANOVA.table(monolingual_analysis, table.title = &quot;ANOVA Output&quot;)
+print(DataTable)</code></pre>
+<pre><code>## 
+## 
+## ANOVA Output 
+## 
+##   Predictor df_num df_den Epsilon    F    p ges
+##  trial.type   1.89  58.73    0.95 4.80 .013 .07
+## 
+## Note. df_num indicates degrees of freedom numerator. df_den indicates degrees of freedom denominator. 
+## Epsilon indicates Greenhouse-Geisser multiplier for degrees of freedom, 
+## p-values and degrees of freedom in the table incorporate this correction.
+## ges indicates generalized eta-squared.
+## </code></pre>
+<p>T-tests</p>
+<pre class="r"><code>CollapsedInSubject &lt;- make_time_window_data(data_clean, 
+                                          aois = c(&quot;look.novel&quot;),
+                                          predictor_columns=c(&quot;trial.type&quot;),
+                                          summarize_by = c(&quot;subject&quot;)) %&gt;%
+  group_by(subject) %&gt;%
+  mutate(trial.num.cons = 1:n())
+
+
+DataForTtest &lt;- spread(CollapsedInSubject, trial.type, Prop)
+
+DataForTtest &lt;- DataForTtest %&gt;% 
+  group_by(subject) %&gt;%
+  summarise_all(funs(max(., na.rm = TRUE)))</code></pre>
+<p>Paired sample T test for Trial Type - Fluent vs Language Consistent Disfluency</p>
+<pre class="r"><code>t.test(DataForTtest$&quot;Fluent&quot;, DataForTtest$&quot;Disfluent Language-consistent&quot;,paired=TRUE) </code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  DataForTtest$Fluent and DataForTtest$&quot;Disfluent Language-consistent&quot;
+## t = -2.5196, df = 31, p-value = 0.01712
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.18355410 -0.01932894
+## sample estimates:
+## mean of the differences 
+##              -0.1014415</code></pre>
+<p>Finding means and standard deviations</p>
+<pre class="r"><code>mean(DataForTtest$Fluent)  </code></pre>
+<pre><code>## [1] 0.5100026</code></pre>
+<pre class="r"><code>sd(DataForTtest$Fluent)    </code></pre>
+<pre><code>## [1] 0.1718552</code></pre>
+<pre class="r"><code>mean(DataForTtest$&quot;Disfluent Language-consistent&quot;) </code></pre>
+<pre><code>## [1] 0.6114441</code></pre>
+<pre class="r"><code>sd(DataForTtest$&quot;Disfluent Language-consistent&quot;)   </code></pre>
+<pre><code>## [1] 0.2125258</code></pre>
+<pre class="r"><code>cohen.d(DataForTtest$&quot;Disfluent Language-consistent&quot;,DataForTtest$&quot;Fluent&quot;,pooled=TRUE,paired=TRUE)</code></pre>
+<pre><code>## 
+## Cohen&#39;s d
+## 
+## d estimate: 0.4454076 (small)
+## 95 percent confidence interval:
+##       lower       upper 
+## -0.06049375  0.95130898</code></pre>
+<p>Paired sample T test for Trial Type - Fluent vs Language Inconsistent Disfluency</p>
+<pre class="r"><code>t.test(DataForTtest$&quot;Fluent&quot;, DataForTtest$&quot;Disfluent Language-inconsistent&quot;,paired=TRUE) ## Sig.</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  DataForTtest$Fluent and DataForTtest$&quot;Disfluent Language-inconsistent&quot;
+## t = -2.4529, df = 31, p-value = 0.02
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.20770156 -0.01911104
+## sample estimates:
+## mean of the differences 
+##              -0.1134063</code></pre>
+<pre class="r"><code>cohen.d(DataForTtest$&quot;Disfluent Language-inconsistent&quot;,DataForTtest$&quot;Fluent&quot;,pooled=TRUE,paired=TRUE)</code></pre>
+<pre><code>## 
+## Cohen&#39;s d
+## 
+## d estimate: 0.4336096 (small)
+## 95 percent confidence interval:
+##       lower       upper 
+## -0.07197167  0.93919092</code></pre>
+<pre class="r"><code>## Mean and standard deviation for Fluent Trials already found above 
+mean(DataForTtest$&quot;Disfluent Language-inconsistent&quot;) </code></pre>
+<pre><code>## [1] 0.6234089</code></pre>
+<pre class="r"><code>sd(DataForTtest$&quot;Disfluent Language-inconsistent&quot;) </code></pre>
+<pre><code>## [1] 0.2009359</code></pre>
+<p>Paired sample T test for Trial Type - Language Consistent vs Language Inconsistent Disfluency</p>
+<pre class="r"><code>t.test(DataForTtest$&quot;Disfluent Language-consistent&quot;, DataForTtest$&quot;Disfluent Language-inconsistent&quot;,paired=TRUE)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  DataForTtest$&quot;Disfluent Language-consistent&quot; and DataForTtest$&quot;Disfluent Language-inconsistent&quot;
+## t = -0.31042, df = 31, p-value = 0.7583
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.09057441  0.06664485
+## sample estimates:
+## mean of the differences 
+##             -0.01196478</code></pre>
+<pre class="r"><code>cohen.d(DataForTtest$&quot;Disfluent Language-inconsistent&quot;,DataForTtest$&quot;Disfluent Language-consistent&quot;,pooled=TRUE,paired=TRUE)</code></pre>
+<pre><code>## 
+## Cohen&#39;s d
+## 
+## d estimate: 0.05487578 (negligible)
+## 95 percent confidence interval:
+##      lower      upper 
+## -0.4449611  0.5547127</code></pre>
+<pre class="r"><code>    ## Mean and standard deviation for Disfluency Trials already found above </code></pre>
+<p>Graph of the results</p>
+<pre class="r"><code>descriptive_df &lt;- CollapsedInSubject %&gt;% 
+  group_by(trial.type) %&gt;% 
+  summarise(means= mean(Prop),
+            SEs = mean(Prop)/sqrt(length(Prop)))
+
+
+ggplot(descriptive_df, aes(x=trial.type, y=means))+ 
+  geom_bar(stat=&quot;identity&quot;, aes(fill=trial.type))+ # add means
+  geom_errorbar(aes(ymin=means-SEs,               # add error bars
+                    ymax=means+SEs), width=.2) +
+  ylab(&quot;Proportion of Looking Time&quot;) +
+  xlab(&quot;Condition&quot;) +
+  labs(fill=&quot;Condition&quot;)+
+  ggtitle(&quot;Monolingual Children: Proportion of Time Looking at Novel Object&quot;) +
+  theme_classic(base_size =10) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
+<p><img src="ReplicatedData_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+<div id="report-of-results" class="section level1">
+<h1>Report of Results</h1>
+<p>The data was submitted to a one-way repeated measures ANOVA with the independent variable of Trial type (of the three levels: Fluent, Disfluent Language-consistent, and Disfluent Language-Inconsistent), and the dependent variable as proportion of looking towards the at the novel object. The results of the ANOVA indicated a significant main effect of Trial type F(1.89, 58.73) = 4.80, p=.013. Follow up paired sample t-tests were conducted and showed that the monolingual subjects had a significantly lower proportion of time looking to the novel object in the Fluent trials (M= .51, SD= .17) compared to the Disfluent Language-consistent trials (.61, .21) with t(31)=-2.5196, p= .017, d= .45. Furthermore, monolingual subjects also had a significantly lower proportion of time looking to the novel object in the Fluent trials compared to the Disfluent Language-inconsistent trials (M= .62, SD= .20) with t(31) = -2.4529, p= .02, d=.43. Finally, the t-test between the two Disfluent conditions (Disfluent Language-Consistent and Dislfluent Language-Inconsistent) indicated no significant difference eith t(31) = -0.310, p= .758 and d= .05.</p>
+</div>
+<div id="discussion-of-re-analysis" class="section level1">
+<h1>Discussion of Re-analysis</h1>
+<p>In reproducing the original analysis from the paper in regards to the first ANOVA conducted as Part of Study 1 on monolinguals, I was able to benefit from the R scripts made publicly available by the researchers. Using the guide of the original R-scripts that were used to conduct the analysis in the paper, I went through the re-organization and cleaning of the data in order to produce data that could then be analyzed by ANOVA and the follow up t-tests. Although I had the availability of the researcher’s R scripts, I tried to use that as a guide only in terms of the packages and functions that they used, and would then search through the documentation of the function to understand all the different arguments taken by the function, what the function was, and why it was used. I also referenced it whenever I came acrosss errors in my own code. For the most part, I was able to reproduce the analysis conducted in the paper, in that my ANOVA also had similar results that indicated a main effect of condition, and my t-tests also pointed towards the same conclusions. Although the numbers were slightly different, I believe my cleaning of the data was slightly different than theirs, which may have effected all subsequent analysis. Because the gaze of the participants was followed by an eye tracker, the cleaning of the data consisted of removing trials in which there was a significant amount of trackloss. The original R script used a specific cut-off which was not thoroughly explained in either the data, R-script or paper (so I believe), and therefore I used my own arbitrary cut-off that resulted in a different number of trials being removed and thus a slightl different set of data being used for the subsequent analysis. For the most part however, the differences between my results and the original results were not entirely different. One part of analysis that I did not see in the R-script but that was present in the paper was the effect size (d) of each of t -tests. Therefore, I used a function I thought best fit for this purpose and easiest to use to get my results, and found there to be the most noticeable difference between my effect sizes and the effect sizes reported in the paper, although relatively the numbers were not extremely different (d=.45 vs .52 ,d=.43 vs .59, d=.05 vs .05, where the first numbers are from my analysis and second number is from the paper). Overall, I believe I was able to successfully replicate this ANOVA and its follow up tests.</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
